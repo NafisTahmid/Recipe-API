@@ -44,10 +44,10 @@ class Recipe(models.Model):
         on_delete = models.CASCADE
     )
     title = models.CharField(max_length=255, blank=True)
-    description = models.CharField(blank=True)
-    time_minutes = models.IntegerField(blank=True)
-    price = models.DecimalField(blank=True, max_digits=5, decimal_places=2)
-    link = models.CharField(blank=True)
+    description = models.TextField(blank=True, null=True)
+    time_minutes = models.IntegerField(blank=True, null=True)
+    price = models.DecimalField(blank=True, max_digits=5, decimal_places=2, null=True)
+    link = models.CharField(blank=True, null=True, max_length=255)
     tags = models.ManyToManyField('Tag')
 
     def __str__(self):
